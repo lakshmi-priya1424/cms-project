@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -59,7 +59,7 @@ export default function Login() {
         </p>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .animate-fadeIn {
           animation: fadeIn 0.8s ease-in-out forwards;
         }

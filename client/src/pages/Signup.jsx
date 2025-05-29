@@ -27,7 +27,7 @@ export default function Signup() {
 
     return (
         <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Background GIF */}
+          
             <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
@@ -38,7 +38,7 @@ export default function Signup() {
                 }}
             ></div>
 
-            {/* Signup Form */}
+
             <div className="max-w-md mx-auto p-8 bg-white bg-opacity-90 border border-gray-200 rounded-2xl shadow-xl backdrop-blur-md">
                 <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-700">Sign Up</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">

@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../context/Authcontext';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const {login } = useContext(AuthContext);
 
   function handleSubmit(event) {
     event.preventDefault();
-    // Add your logic here
+    login(email,password);
   }
 
   return (

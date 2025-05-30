@@ -19,7 +19,7 @@ export default function AppRoutes() {
         <Route path="/additem" element={<AddItem/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/about" element={<About/>} />
-        <Route path="/intro" element={<Introd/>}/>
+        <Route path="/dashboard/intro" element={<Introd/>}/>
         <Route path="*" element={<NotFound/>} />
       </Route>
       <Route path="/dashboard" element={<Dashboard />} />

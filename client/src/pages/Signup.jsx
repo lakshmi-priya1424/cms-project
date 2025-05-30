@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useContext, useState } from 'react';
+ import AuthContext from '../context/Authcontext';
 export default function Signup() {
     const [formData, setFormData] = useState({
         username: '',
@@ -10,7 +10,7 @@ export default function Signup() {
         profession: '',
         hobby: '',
     });
-
+    const { signup } = useContext(AuthContext);
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -21,8 +21,15 @@ export default function Signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Submitted Data:', formData);
-        alert('Signup successful!');
+        signup(formData.email, formData.password);
+        import('sweetalert2').then(Swal => {
+            Swal.default.fire({
+            icon: 'success',
+            title: 'Signup successful!',
+            showConfirmButton: false,
+            timer: 1500
+            });
+        });
     };
 
     return (

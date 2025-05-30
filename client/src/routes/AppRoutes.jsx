@@ -6,6 +6,7 @@ import NotFound from '../pages/NotFound'
 import BasicLayout from '../layouts/BasicLayout'
 import AddItem from '../pages/cms/AddItem'
 import About from '../pages/dashboard/About'
+import Introd from '../pages/dashboard/Introd'
 
 
 export default function AppRoutes() {
@@ -17,6 +18,7 @@ export default function AppRoutes() {
         <Route path="/additem" element={<AddItem/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/about" element={<About/>} />
+        <Route path="/intro" element={<Introd/>}/>
         <Route path="*" element={<NotFound/>} />
         </Route>
     </Routes>

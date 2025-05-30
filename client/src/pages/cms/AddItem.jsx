@@ -2,6 +2,8 @@ import React, { use } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import StorageContext from '../../context/StorageContext';
+   
 
 function AddItem(props) {
     const [movieImage ,setMovieImage] = useState('');
@@ -11,17 +13,29 @@ function AddItem(props) {
     const [ageCategory, setAgeCategory] = useState('');
     const [movieCategory, setMovieCategory] = useState('');
     const [languageCategory, setLanguageCategory] = useState('');
-
+    const {  addNewItem } = use(useContext(StorageContext));
     const navigate = useNavigate();
 
     function handleSubmit(event){
+    
         event.preventDefault();
+        addNewItem({
+            movieImage, 
+            movieName,
+            releasedYear,
+            seasons,        
+            ageCategory,
+            movieCategory,
+            languageCategory,
+            isFavorite: false,
+                });
         Swal.fire({
             title:"Sucess",
             text:"Movie🎥 Added Sucessfully",
             icon:"success",
         confirmButtonText:"OK"      
       })
+      navigate('dashboard/view');
 
     }
    

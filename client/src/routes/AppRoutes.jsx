@@ -5,6 +5,7 @@ import Signup from '../pages/Signup'
 import NotFound from '../pages/NotFound'
 import BasicLayout from '../layouts/BasicLayout'
 import About from '../pages/dashboard/About'
+import Introd from '../pages/dashboard/Introd'
 
 export default function AppRoutes() {
   return (
@@ -14,6 +15,7 @@ export default function AppRoutes() {
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/about" element={<About/>} />
+        <Route path="/intro" element={<Introd/>}/>
         <Route path="*" element={<NotFound/>} />
         </Route>
     </Routes>

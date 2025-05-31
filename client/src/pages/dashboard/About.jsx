@@ -13,7 +13,6 @@ const AboutPage = () => {
       }}
     >
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* Left: Movie & Series Image */}
         <div className="flex justify-center">
           <img
             src="https://wallpapers.com/images/hd/movie-pictures-gpui8crwapvn1v96.jpg"
@@ -22,16 +21,14 @@ const AboutPage = () => {
           />
         </div>
 
-        {/* Right: About Box */}
+  
         <div className="relative">
-          {/* About Icon */}
           <img
             src="https://cdn.dribbble.com/userupload/22835178/file/original-fc9fa00046009fe6fb6f3283a33e07c8.gif"
             alt="About Icon"
             className="w-20 h-20 absolute -top-10 left-1/2 -translate-x-1/2 rounded-full shadow-xl z-10"
           />
 
-          {/* Info Box */}
           <div className="bg-white bg-opacity-90 shadow-xl rounded-2xl p-8 pt-16 text-center hover:shadow-2xl transition-shadow duration-300 cursor-pointer group">
             <h2 className="text-3xl font-bold mb-4 text-indigo-600 group-hover:text-indigo-800 transition-colors duration-300">
               About Our Platform

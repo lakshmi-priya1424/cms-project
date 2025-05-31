@@ -106,6 +106,7 @@ function AddItem() {
                     value={ageCategory}
                     onChange={e => setAgeCategory(e.target.value)}
                     required
+                    style={{ background: "#141414", color: "#fff" }}
                 >
                     <option value="">Select Age Category</option>
                     <option value="U">U</option>
@@ -119,6 +120,7 @@ function AddItem() {
                     value={movieCategory}
                     onChange={e => setMovieCategory(e.target.value)}
                     required
+                    style={{ background: "#141414", color: "#fff" }}
                 >
                     <option value="">Select a genre</option>
                     <option value="action">Action</option>
@@ -142,6 +144,7 @@ function AddItem() {
                     value={languageCategory}
                     onChange={e => setLanguageCategory(e.target.value)}
                     required
+                    style={{ background: "#141414", color: "#fff" }}
                 >
                     <option value="">Select Language</option>
                     <option value="english">English</option>
@@ -167,6 +170,7 @@ function AddItem() {
                         onChange={e => setRating(e.target.value)}
                         className="form-input"
                         required
+                        style={{ background: "#141414", color: "#fff" }}
                     >
                         <option value="">Select Rating</option>
                         <option value="1">⭐</option>

@@ -16,6 +16,7 @@ import MyFavorites from '../pages/dashboard/myFavorites';
 
 
 import PrivateRoute from './PrivateRoutes';
+import Stats from '../pages/dashboard/Stats';
 
 
 export default function AppRoutes() {
@@ -37,10 +38,10 @@ export default function AppRoutes() {
 				}
 			>
 				
-				{/* <Route path="/dashboard/stats" element={<UserStats />} /> */}
+				<Route path="/dashboard/stats" element={<Stats />} />
         <Route path='/dashboard/intro' element={<Introd/>}/>
 				<Route path="/dashboard/additem" element={<AddItem />} />
-				<Route path="/dashboard/view" element={<View />
+				<Route path="/dashboard/view" element={<View />}/>
 				<Route path="/dashboard/myfavorites" element={<MyFavorites />} />
         <Route path="/dashboard/developer" element={<Developer/>}/>
         <Route path="/dashboard/about" element={<About/>}/>

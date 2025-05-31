@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AuthContext from '../context/AuthContext';
+import AuthContext from '../context/Authcontext';
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 const dashboardOptions = [
   { label: 'Intro', emoji: '🏠', route: '/dashboard/intro' },

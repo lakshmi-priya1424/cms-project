@@ -1,22 +1,26 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router'
 
+
+
 export default function BasicLayout() {
    return (
    <>
-      <header className="bg-blue-400 text-white flex items-center justify-between sticky top-0 p-2 space-x-4 shadow-lg z-50">
-         <div className="flex items-center space-x-4">
-            <Link to={'/'} className="text-3xl font-bold hover:scale-110 transition-transform duration-200">🏠</Link>
-         </div>
-         <div className="flex gap-3">
-            <div className='border-3 border-white px-4 py-2 rounded-lg hover:bg-white hover:text-blue-400 transition-colors duration-200 shadow-md cursor-pointer font-semibold'>
-               <Link to={'/login'} className="no-underline">sign-in</Link> 
-            </div>
-            <div className='border-3 border-white px-4 py-2 rounded-lg hover:bg-white hover:text-blue-400 transition-colors duration-200 shadow-md cursor-pointer font-semibold'>
-               <Link to={'/signup'} className="no-underline">sign-up</Link> 
-            </div>
-         </div>
-      </header>
+   <div  style={{
+        backgroundImage: "url('https://static.wixstatic.com/media/defc79_96530b31e45d42469d115cf72f9aab1c~mv2.gif')",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}>
+     <header className="bg-transparent  text-white flex items-center justify-between sticky top-2 p-2 space-x-4 z-30">
+   <div className="flex items-center space-x-4">
+      <Link to={'/'} className="text-3xl font-bold hover:scale-110 transition-transform duration-200">🏠</Link>
+   </div>
+   <div className="flex gap-3">
+      <Link to={'/login'} className='border-2 border-white px-4 py-2 rounded-lg hover:bg-white hover:text-blue-400 transition-colors duration-200 shadow-md cursor-pointer font-semibold no-underline'>sign-in</Link>
+      <Link to={'/signup'} className='border-2 border-white px-4 py-2 rounded-lg hover:bg-white hover:text-blue-400 transition-colors duration-200 shadow-md cursor-pointer font-semibold no-underline'>sign-up</Link>
+   </div>
+</header>
+
       <main>
          <Outlet/>
       </main>
@@ -40,6 +44,7 @@ export default function BasicLayout() {
          </div>
          <span className="text-sm">&copy; {new Date().getFullYear()} Team Project. All rights reserved.</span>
       </footer>
+      </div>
    </>
    )
 }

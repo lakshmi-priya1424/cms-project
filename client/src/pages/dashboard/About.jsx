@@ -2,7 +2,16 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-8">
+    <div
+      className="min-h-screen flex items-center justify-center p-8"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(20,20,20,0.85), rgba(20,20,20,0.85)), url('https://assets.nflxext.com/ffe/siteui/vlv3/7e6e7e3d-7c7e-4e6e-8c3e-2c6e7e3e7e3e/7e6e7e3d-7c7e-4e6e-8c3e-2c6e7e3e7e3e_BG.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left: Movie & Series Image */}
         <div className="flex justify-center">
@@ -23,7 +32,7 @@ const AboutPage = () => {
           />
 
           {/* Info Box */}
-          <div className="bg-white shadow-xl rounded-2xl p-8 pt-16 text-center hover:shadow-2xl transition-shadow duration-300 cursor-pointer group">
+          <div className="bg-white bg-opacity-90 shadow-xl rounded-2xl p-8 pt-16 text-center hover:shadow-2xl transition-shadow duration-300 cursor-pointer group">
             <h2 className="text-3xl font-bold mb-4 text-indigo-600 group-hover:text-indigo-800 transition-colors duration-300">
               About Our Platform
             </h2>
@@ -56,4 +65,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-

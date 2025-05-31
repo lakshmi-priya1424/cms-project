@@ -15,9 +15,6 @@ export default function Login() {
   return (
     <section
       className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat animate-fadeIn"
-      style={{
-        backgroundImage: "url('https://static.wixstatic.com/media/defc79_96530b31e45d42469d115cf72f9aab1c~mv2.gif')",
-      }}
     >
       <div className="bg-white bg-opacity-90 shadow-lg rounded-xl p-8 w-80 md:w-96 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
         <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Login</h1>

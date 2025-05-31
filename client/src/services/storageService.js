@@ -39,12 +39,12 @@ class StorageService {
 		this._save();
 	}
 
-	hasmovieItem(itemKey) {
+	hasItem(itemKey) {
 		return Object.prototype.hasOwnProperty.call(this.db, itemKey);
 	}
 
 	// Internal method to persist to localStorage
-	save_movie() {
+	_save() {
 		localStorage.setItem(this.key, JSON.stringify(this.db));
 	}
 }

@@ -7,14 +7,18 @@ import './App.css'
 import AppRoutes from './routes/AppRoutes'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import { AuthProvider } from './context/Authcontext'
+import { AuthProvider } from './context/AuthContext'
+import Introd from './pages/dashboard/Introd'
+import { StorageProvider } from '../src/context/StorageContext'
 
 function App() {
   return (
     <>
-    <AuthProvider>
+  <AuthProvider>
+    <StorageProvider>
       <AppRoutes/>
-    </AuthProvider>
+      </StorageProvider>
+    </AuthProvider> 
     </>
   )
 }

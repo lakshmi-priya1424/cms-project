@@ -7,9 +7,9 @@ import './App.css'
 import AppRoutes from './routes/AppRoutes'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import { AuthProvider } from './context/Authcontext'
 import Introd from './pages/dashboard/Introd'
 import { StorageProvider } from '../src/context/StorageContext'
+import { AuthProvider } from './context/Authcontext'
 
 function App() {
   return (

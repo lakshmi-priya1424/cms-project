@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import AuthContext from '../context/AuthContext';
+import AuthContext from '../context/Authcontext';
 import { useNavigate } from 'react-router-dom';
 export default function Signup() {
     const [formData, setFormData] = useState({

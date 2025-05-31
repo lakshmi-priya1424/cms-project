@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { useNavigate, Outlet, useLocation } from 'react-router-dom';
+
 
 const dashboardOptions = [
   { label: 'Intro', emoji: '🏠', route: '/dashboard/intro' },
@@ -10,11 +12,13 @@ const dashboardOptions = [
   { label: 'My Favorites', emoji: '⭐', route: '/dashboard/myfavorites' },
 ];
 
+
 function Dashboard() {
   const navigate = useNavigate();
   const location = useLocation();
 
   return (
+
     <div className="h-screen bg-zinc-900 flex">
       <nav className="flex flex-col items-center text-white bg-zinc-800 py-8 px-2 w-16 hover:w-48 transition-all duration-300 relative group">
         {dashboardOptions.map((option) => {

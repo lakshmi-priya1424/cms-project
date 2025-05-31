@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+
 import AuthContext from './AuthContext';
 import storageService from '../services/storageService';
 
@@ -6,6 +7,7 @@ const STORAGE_KEY = 'movies';
 const StorageContext = createContext();
 
 function StorageProvider({ children }) {
+
     const [items, setItems] = useState([]);
     const { userEmail } = useContext(AuthContext);
 
@@ -17,6 +19,8 @@ function StorageProvider({ children }) {
         setItems(storageService.getItem(STORAGE_KEY) || []);
     }, []);
 
+
+
     function syncItems(newItems) {
         storageService.setItem(STORAGE_KEY, newItems);
         setItems(newItems);
@@ -27,14 +31,16 @@ function StorageProvider({ children }) {
         syncItems(newItems);
         
     }
-
     function getAllItem() {
         return items;
     }
 
+
+
     function getItemByCondition(condition) {
         return items.filter(condition);
     }
+
 
     function updateItem(itemIndex, newData) {
         const newItems = [...items];
@@ -42,11 +48,13 @@ function StorageProvider({ children }) {
         syncItems(newItems);
     }
 
+
     function deleteItem(deleteIndex) {
         const newItems = [...items];
         newItems.splice(deleteIndex, 1);
         syncItems(newItems);
     }
+
 
     return (
         <StorageContext.Provider
@@ -62,6 +70,7 @@ function StorageProvider({ children }) {
             {children}
         </StorageContext.Provider>
     );
+
 }
 
 export default StorageContext;

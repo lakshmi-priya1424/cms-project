@@ -11,7 +11,9 @@ function AddItem() {
     const [ageCategory, setAgeCategory] = useState('');
     const [movieCategory, setMovieCategory] = useState('');
     const [languageCategory, setLanguageCategory] = useState('');
+
     const [rating, setRating] = useState('');
+
 
     const { addNewItem } = useContext(StorageContext);
     const navigate = useNavigate();
@@ -27,7 +29,9 @@ function AddItem() {
             ageCategory,
             movieCategory,
             languageCategory,
+
             rating: Number(rating),
+
             isFavorite: false
         });
 
@@ -42,6 +46,7 @@ function AddItem() {
     }
 
     return (
+
         <div className="netflix-bg min-h-screen flex items-center justify-center relative">
             <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
             <form
@@ -49,6 +54,7 @@ function AddItem() {
                 className="relative z-10 w-full max-w-md bg-black bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-2xl p-10 space-y-6 animate-fade-in border border-white border-opacity-20 glass-form"
             >
                 <h2 className="text-3xl font-extrabold text-white mb-4 text-center animate-slide-down drop-shadow-lg tracking-wide">
+
                     Add New Movie🎥🍿
                 </h2>
 
@@ -151,6 +157,7 @@ function AddItem() {
                 </select>
 
                 <div className="flex flex-col">
+
                     <label className="text-sm font-semibold text-gray-200 mb-1 drop-shadow">
                         Rating (1–5 Stars)
                     </label>
@@ -168,6 +175,7 @@ function AddItem() {
                         <option value="4">⭐⭐⭐⭐</option>
                         <option value="5">⭐⭐⭐⭐⭐</option>
                     </select>
+
                 </div>
 
                 <button

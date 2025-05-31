@@ -19,7 +19,6 @@ export default function Card({ item, index }) {
 			className="relative rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 group w-full max-w-xs"
 			style={{ minHeight: 380 }}
 		>
-			{/* Background Poster */}
 			<img
 				src={item.movieImage || 'https://wallpapers.com/images/featured/disney-has6vy47k75d0bzs.jpg'}
 				alt={item.movieName}
@@ -27,12 +26,11 @@ export default function Card({ item, index }) {
 				style={{ height: '380px',width:'100%' }}
 			/>
 
-			{/* Overlay Gradient and Content */}
+			
 			<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col justify-end">
-				{/* Movie Name */}
+				
 				<h2 className="text-lg font-bold text-white mb-1">{item.movieName}</h2>
 
-				{/* Tags */}
 				<div className="flex flex-wrap gap-1 text-xs text-white mb-2">
 					{item.seasons && (
 						<span className="bg-white/10 px-2 py-0.5 rounded">Seasons: {item.seasons}</span>
@@ -43,7 +41,7 @@ export default function Card({ item, index }) {
 					<span className="bg-white/10 px-2 py-0.5 rounded">⭐ {item.rating}</span>
 				</div>
 
-				{/* Buttons */}
+				
 				<div className="flex gap-2">
 					<button
 						onClick={handleFavorite}
@@ -64,14 +62,13 @@ export default function Card({ item, index }) {
 				</div>
 			</div>
 
-			{/* Floating Star */}
+
 			{isFavorite && (
 				<div className="absolute top-2 right-2 text-yellow-400 text-xl drop-shadow-md">
 					⭐
 				</div>
 			)}
 
-			{/* Card Index (Optional) */}
 			<div className="absolute bottom-2 left-2 text-xs text-white/60">#{index + 1}</div>
 		</div>
 	);

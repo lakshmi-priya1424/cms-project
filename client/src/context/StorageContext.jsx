@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import AuthContext from './Authcontext';
+
+import storageService from '../services/storageService';
+import AuthContext from './AuthContext';
 
 
 
@@ -8,9 +10,16 @@ const STORAGE_KEY = 'movies';
 const StorageContext = createContext();
 
 function StorageProvider({ children }) {
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState([]); 
     const { userEmail } = useContext(AuthContext);
 
+    useEffect(() => {
+        
+        if (!storageService.hasItem(STORAGE_KEY)) {
+            storageService.setItem(STORAGE_KEY, []);
+        }
+        setItems(storageService.getItem(STORAGE_KEY) || []);
+    }, []);
     useEffect(() => {
         
         if (!storageService.hasItem(STORAGE_KEY)) {
@@ -23,7 +32,16 @@ function StorageProvider({ children }) {
         storageService.setItem(STORAGE_KEY, newItems);
         setItems(newItems);
     }
+    function syncItems(newItems) {
+        storageService.setItem(STORAGE_KEY, newItems);
+        setItems(newItems);
+    }
 
+    function addNewItem(newItem) {
+        const newItems = [...items, newItem];
+        syncItems(newItems);
+        
+    }
     function addNewItem(newItem) {
         const newItems = [...items, newItem];
         syncItems(newItems);
@@ -33,11 +51,22 @@ function StorageProvider({ children }) {
     function getAllItem() {
         return items;
     }
+    function getAllItem() {
+        return items;
+    }
 
     function getItemByCondition(condition) {
         return items.filter(condition);
     }
+    function getItemByCondition(condition) {
+        return items.filter(condition);
+    }
 
+    function updateItem(itemIndex, newData) {
+        const newItems = [...items];
+        newItems[itemIndex] = { ...newItems[itemIndex], ...newData };
+        syncItems(newItems);
+    }
     function updateItem(itemIndex, newData) {
         const newItems = [...items];
         newItems[itemIndex] = { ...newItems[itemIndex], ...newData };
@@ -49,7 +78,26 @@ function StorageProvider({ children }) {
         newItems.splice(deleteIndex, 1);
         syncItems(newItems);
     }
+    function deleteItem(deleteIndex) {
+        const newItems = [...items];
+        newItems.splice(deleteIndex, 1);
+        syncItems(newItems);
+    }
 
+    return (
+        <StorageContext.Provider
+            value={{
+                addNewItem,
+                getAllItem,
+                getItemByCondition,
+                updateItem,
+                deleteItem,
+                items,
+            }}
+        >
+            {children}
+        </StorageContext.Provider>
+    );
     return (
         <StorageContext.Provider
             value={{

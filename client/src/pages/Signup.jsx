@@ -34,18 +34,6 @@ export default function Signup() {
 
     return (
         <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          
-            <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{
-                    backgroundImage:
-                        "url('https://static.wixstatic.com/media/defc79_96530b31e45d42469d115cf72f9aab1c~mv2.gif')",
-                    zIndex: -1,
-                    filter: 'blur(2px) brightness(0.8)',
-                }}
-            ></div>
-
-
             <div className="max-w-md mx-auto p-8 bg-white bg-opacity-90 border border-gray-200 rounded-2xl shadow-xl backdrop-blur-md">
                 <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-700">Sign Up</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">

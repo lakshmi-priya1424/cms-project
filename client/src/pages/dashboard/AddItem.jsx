@@ -11,7 +11,7 @@ function AddItem() {
     const [ageCategory, setAgeCategory] = useState('');
     const [movieCategory, setMovieCategory] = useState('');
     const [languageCategory, setLanguageCategory] = useState('');
-    const [rating, setRating] = useState(''); // ⭐ New rating state
+    const [rating, setRating] = useState('');
 
     const { addNewItem } = useContext(StorageContext);
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ function AddItem() {
             ageCategory,
             movieCategory,
             languageCategory,
-            rating: Number(rating), // ⭐ Ensure rating is a number
+            rating: Number(rating),
             isFavorite: false
         });
 
@@ -42,12 +42,13 @@ function AddItem() {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-50">
+        <div className="netflix-bg min-h-screen flex items-center justify-center relative">
+            <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
             <form
                 onSubmit={handleSubmit}
-                className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg space-y-6 animate-fade-in"
+                className="relative z-10 w-full max-w-md bg-black bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-2xl p-10 space-y-6 animate-fade-in border border-white border-opacity-20 glass-form"
             >
-                <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center animate-slide-down">
+                <h2 className="text-3xl font-extrabold text-white mb-4 text-center animate-slide-down drop-shadow-lg tracking-wide">
                     Add New Movie🎥🍿
                 </h2>
 
@@ -55,7 +56,7 @@ function AddItem() {
                     type="text"
                     name="movieImage"
                     placeholder="Enter the movie img url"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 focus:scale-105"
+                    className="form-input"
                     value={movieImage}
                     onChange={e => setMovieImage(e.target.value)}
                     required
@@ -65,7 +66,7 @@ function AddItem() {
                     type="text"
                     name="movieName"
                     placeholder="Enter the movie or series name"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 focus:scale-105"
+                    className="form-input"
                     value={movieName}
                     onChange={e => setMovieName(e.target.value)}
                     required
@@ -77,7 +78,7 @@ function AddItem() {
                     max="2025"
                     name="releasedYear"
                     placeholder="Enter the Released Year"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 focus:scale-105"
+                    className="form-input"
                     value={releasedYear}
                     onChange={e => setReleasedYear(e.target.value)}
                     required
@@ -88,14 +89,14 @@ function AddItem() {
                     min="1"
                     name="seasons"
                     placeholder="Enter the number of seasons"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 focus:scale-105"
+                    className="form-input"
                     value={seasons}
                     onChange={e => setSeasons(e.target.value)}
                 />
 
                 <select
                     name="ageCategory"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 focus:scale-105"
+                    className="form-input"
                     value={ageCategory}
                     onChange={e => setAgeCategory(e.target.value)}
                     required
@@ -108,7 +109,7 @@ function AddItem() {
 
                 <select
                     name="movieCategory"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 focus:scale-105"
+                    className="form-input"
                     value={movieCategory}
                     onChange={e => setMovieCategory(e.target.value)}
                     required
@@ -131,7 +132,7 @@ function AddItem() {
 
                 <select
                     name="languageCategory"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 focus:scale-105"
+                    className="form-input"
                     value={languageCategory}
                     onChange={e => setLanguageCategory(e.target.value)}
                     required
@@ -150,28 +151,28 @@ function AddItem() {
                 </select>
 
                 <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-gray-600 mb-1">
+                    <label className="text-sm font-semibold text-gray-200 mb-1 drop-shadow">
                         Rating (1–5 Stars)
                     </label>
                     <select
-                                            name="rating"
-                                            value={rating}
-                                            onChange={e => setRating(e.target.value)}
-                                            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 focus:scale-105"
-                                            required
-                                        >
-                                            <option value="">Select Rating</option>
-                                            <option value="1">⭐</option>
-                                            <option value="2">⭐⭐</option>
-                                            <option value="3">⭐⭐⭐</option>
-                                            <option value="4">⭐⭐⭐⭐</option>
-                                            <option value="5">⭐⭐⭐⭐⭐</option>
-                                        </select>
+                        name="rating"
+                        value={rating}
+                        onChange={e => setRating(e.target.value)}
+                        className="form-input"
+                        required
+                    >
+                        <option value="">Select Rating</option>
+                        <option value="1">⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                    </select>
                 </div>
 
                 <button
                     type="submit"
-                    className="w-full bg-amber-400 text-white py-3 rounded-lg font-semibold hover:bg-amber-500 transition-colors duration-300 transform hover:scale-105 active:scale-95"
+                    className="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-red-900/40"
                 >
                     ADD ITEM
                 </button>
@@ -179,6 +180,34 @@ function AddItem() {
 
             <style>
                 {`
+                .netflix-bg {
+                    background: linear-gradient(120deg, #141414 60%, #1f1c18 100%);
+                    position: relative;
+                    overflow: hidden;
+                }
+                .glass-form {
+                    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                    border-radius: 20px;
+                    border: 1px solid rgba(255,255,255,0.18);
+                }
+                .form-input {
+                    width: 100%;
+                    padding: 0.75rem;
+                    margin-bottom: 0.5rem;
+                    border-radius: 0.75rem;
+                    border: 1px solid rgba(255,255,255,0.2);
+                    background: rgba(255,255,255,0.08);
+                    color: #fff;
+                    font-size: 1rem;
+                    outline: none;
+                    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+                    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+                }
+                .form-input:focus {
+                    border: 1.5px solid #e50914;
+                    background: rgba(255,255,255,0.15);
+                    box-shadow: 0 0 0 2px #e5091455;
+                }
                 .animate-fade-in {
                     animation: fadeIn 0.8s ease;
                 }

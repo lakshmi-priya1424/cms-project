@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
 import storageService from '../services/storageService';
-import AuthContext  from './Authcontext';
+import AuthContext  from './AuthContext';
 
 const STORAGE_KEY = 'movies';
 const StorageContext = createContext();
